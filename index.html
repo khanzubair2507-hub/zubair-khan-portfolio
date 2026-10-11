@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zubair Khan - Cloud & DevOps Engineer | Enterprise Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #f4f7fc;
+            color: #272829;
+            overflow-x: hidden;
+        }
+        /* Header / Corporate Sidebar */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 300px;
+            background: #0b132b;
+            overflow-y: auto;
+            transition: all 0.4s;
+            padding: 0 20px;
+            z-index: 9997;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+        }
+        .profile img {
+            margin: 20px auto 10px auto;
+            display: block;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #149ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .profile h1 {
+            font-size: 22px;
+            margin: 10px 0 5px 0;
+            font-weight: 700;
+            text-align: center;
+        }
+        .profile h1 a {
+            color: #fff;
+        }
+        .profile span {
+            display: block;
+            font-size: 13px;
+            color: #a8a9b4;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .social-links {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .social-links a {
+            font-size: 16px;
+            display: inline-block;
+            background: #1c2541;
+            color: #fff;
+            line-height: 1;
+            padding: 10px 0;
+            margin: 0 3px;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            background: #149ddd;
+            color: #fff;
+        }
+        /* Navigation Menu */
+        .nav-menu {
+            padding: 20px 0;
+            border-top: 1px solid #1c2541;
+        }
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            color: #a8a9b4;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+        .nav-menu a i {
+            font-size: 18px;
+            padding-right: 15px;
+            color: #6f7180;
+        }
+        .nav-menu a:hover, .nav-menu .active {
+            color: #fff;
+            background: #1c2541;
+        }
+        .nav-menu a:hover i, .nav-menu .active i {
+            color: #149ddd;
+        }
+
+        /* Main Content Area */
+        #main {
+            margin-left: 300px;
+        }
+
+        /* Hero Section */
+        #hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(11, 19, 43, 0.75), rgba(11, 19, 43, 0.75)), url('image_3.png') center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+        .hero-content p {
+            color: #e0e0e0;
+            font-size: 22px;
+            font-family: "Poppins", sans-serif;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+        }
+        .hero-content p span {
+            color: #149ddd;
+            border-bottom: 2px solid #149ddd;
+            padding-bottom: 2px;
+            font-weight: 600;
+        }
+
+        /* Common Section Styling */
+        section {
+            padding: 90px 0;
+            overflow: hidden;
+            background: #fff;
+            border-bottom: 1px solid #eaeaea;
+        }
+        section#about, section#services, section#portfolio {
+            background: #f8fafc;
+        }
+        .container {
+            width: 85%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .section-title {
+            padding-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            position: relative;
+            color: #0b132b;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #149ddd;
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        .section-title p {
+            color: #656565;
+            font-size: 16px;
+        }
+
+        /* About Section Layout */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-img img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.12);
+        }
+        .about-content h3 {
+            font-weight: 700;
+            font-size: 28px;
+            color: #0b132b;
+            margin-bottom: 15px;
+        }
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .about-content ul li {
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            color: #444;
+        }
+        .about-content ul li i {
+            font-size: 16px;
+            margin-right: 12px;
+            color: #149ddd;
+        }
+
+        /* Resume & Projects Section */
+        .resume-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #0b132b;
+        }
+        .resume-item {
+            padding: 0 0 25px 25px;
+            margin-top: -2px;
+            border-left: 3px solid #149ddd;
+            position: relative;
+        }
+        .resume-item h4 {
+            font-size: 19px;
+            font-weight: 600;
+            color: #0b132b;
+            margin-bottom: 8px;
+        }
+        .resume-item h5 {
+            font-size: 14px;
+            background: #e0f2fe;
+            padding: 5px 14px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0369a1;
+            border-radius: 4px;
+        }
+        .resume-item p {
+            color: #555;
+            font-size: 15px;
+            line-height: 26px;
+        }
+
+        /* Portfolio / Photo Gallery Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .portfolio-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+        .portfolio-card .p-info {
+            padding: 25px;
+        }
+        .portfolio-card h4 {
+            color: #0b132b;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .portfolio-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        /* Services / Tech Stack Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .service-box {
+            background: #fff;
+            padding: 35px 30px;
+            box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            transition: 0.3s;
+            border-top: 4px solid transparent;
+        }
+        .service-box:hover {
+            transform: translateY(-5px);
+            border-top-color: #149ddd;
+            box-shadow: 0px 12px 35px rgba(20, 157, 221, 0.15);
+        }
+        .service-box .icon {
+            width: 60px;
+            height: 60px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .service-box .icon i {
+            color: #149ddd;
+            font-size: 26px;
+        }
+        .service-box h4 {
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 19px;
+            color: #0b132b;
+        }
+        .service-box p {
+            line-height: 26px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #fff;
+            padding: 45px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+        }
+        .contact-info-item i {
+            font-size: 22px;
+            color: #149ddd;
+            width: 60px;
+            height: 60px;
+            background: #e0f2fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+        .contact-info-item h4 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #0b132b;
+            margin-bottom: 4px;
+        }
+        .contact-info-item span {
+            font-size: 15px;
+            color: #666;
+        }
+
+        @media (max-width: 992px) {
+            #header { left: -300px; }
+            #main { margin-left: 0; }
+            .about-grid, .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======= Corporate Sidebar / Header ======= -->
+    <header id="header">
+        <div class="profile">
+            <!-- Professional Suit Photo -->
+            <img src="image_2.png" alt="Zubair Khan">
+            <h1><a href="index.html">Zubair Khan</a></h1>
+            <span>Cloud & DevOps Engineer</span>
+            <div class="social-links text-center">
+                <a href="https://www.linkedin.com/in/mohdzubair01?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/thezubair_khan01" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="mailto:khanzubair2507@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#hero" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> Professional Profile</a></li>
+                <li><a href="#resume"><i class="fas fa-file-alt"></i> Education & Projects</a></li>
+                <li><a href="#portfolio"><i class="fas fa-images"></i> Gallery & Moments</a></li>
+                <li><a href="#services"><i class="fas fa-server"></i> Enterprise Tech Stack</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Details</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ======= Main Content Area ======= -->
+    <main id="main">
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Zubair Khan</h1>
+                <p>Enterprise <span>Cloud / DevOps Engineer & AWS Solution Architect</span></p>
+            </div>
+        </section>
+
+        <!-- Professional Profile / About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Professional Profile</h2>
+                    <p>Delivering high-availability cloud architectures, infrastructure automation, and secure enterprise deployments[cite: 2].</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-img">
+                        <!-- Professional Suit Photo -->
+                        <img src="image_2.png" alt="Zubair Khan">
+                    </div>
+                    <div class="about-content">
+                        <h3>AWS Solution Architect & DevOps Specialist</h3>
+                        <p style="color: #555; font-size: 15px; line-height: 28px;">Dedicated Computer Science student currently studying at <strong>IIMT College Of Engineering, Greater Noida</strong>. Specialized in building robust multi-tier cloud environments, designing CI/CD deployment pipelines, and managing containerized microservices infrastructure[cite: 2].</p>
+                        <ul>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Date of Birth:</strong> 25 July</li>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Phone:</strong> +91 6396691273</li>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Location:</strong> Delhi, India</li>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Institution:</strong> IIMT College Of Engineering, G. Noida</li>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Degree:</strong> B.Tech in Computer Science (2023-2026)[cite: 2]</li>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Email:</strong> khanzubair2507@gmail.com</li>
+                            <li><i class="fas fa-chevron-right"></i> <strong>Employment Status:</strong> Available for Cloud & DevOps Roles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume, Education & Projects Section -->
+        <section id="resume">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Resume & Engineering Projects</h2>
+                    <p>Comprehensive overview of academic background, technical credentials, and deployed cloud projects[cite: 2].</p>
+                </div>
+
+                <h3 class="resume-title">Education Background</h3>
+                <div class="resume-item">
+                    <h4>Bachelor of Technology in Computer Science & Engineering</h4>
+                    <h5>2023 - 2026</h5>
+                    <p><em>IIMT College Of Engineering, Greater Noida</em></p>
+                    <p><em>Rigorous academic training focusing on advanced cloud architectures, operating systems, algorithms, distributed systems, and modern DevOps methodologies[cite: 2].</em></p>
+                </div>
+
+                <h3 class="resume-title">Key Projects & Enterprise Implementations</h3>
+                <div class="resume-item">
+                    <h4>1. Static Website Hosting & CDN Acceleration on AWS</h4>
+                    <h5>Cloud Infrastructure & Networking</h5>
+                    <p>Designed and deployed highly resilient, low-latency static web hosting leveraging Amazon S3 object storage, integrated with CloudFront Content Delivery Network and Route 53 DNS management[cite: 2].</p>
+                </div>
+                <div class="resume-item">
+                    <h4>2. Highly Available Multi-Tier Web Application Deployment</h4>
+                    <h5>DevOps & Fault Tolerance</h5>
+                    <p>Architected a robust, fault-tolerant web application infrastructure utilizing EC2 Auto Scaling groups, Application Load Balancers (ALB), and secure Virtual Private Cloud (VPC) subnets[cite: 2].</p>
+                </div>
+                <div class="resume-item">
+                    <h4>3. Intelligent AI Assistant Data Converter</h4>
+                    <h5>Automation & Software Integration</h5>
+                    <p>Developed an advanced Python-based AI assistant integration tool designed to automate conversational data handling, format translation, and system utility workflows[cite: 2].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio / Gallery Section -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Gallery & Milestones</h2>
+                    <p>Highlights from professional engagements, technical conferences, and architectural site explorations[cite: 2].</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <!-- Taj Hotel Photo -->
+                        <img src="image_3.png" alt="Mumbai Taj Hotel Architectural Expedition">
+                        <div class="p-info">
+                            <h4>Mumbai Architectural Expedition</h4>
+                            <p>Exploring landmark structures and large-scale architectural design principles during exploration tours[cite: 2].</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <!-- Professional Suit Photo -->
+                        <img src="image_2.png" alt="Executive Corporate Portrait">
+                        <div class="p-info">
+                            <h4>Executive Professional Profile</h4>
+                            <p>Formal corporate portrait representing industry preparedness, leadership readiness, and professional excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enterprise Tech Stack Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Enterprise Tech Stack & Expertise</h2>
+                    <p>Industry-standard tools, platforms, and technologies utilized for high-performance deployments[cite: 2].</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-box">
+                        <div class="icon"><i class="fas fa-cloud"></i></div>
+                        <h4>Amazon Web Services (AWS)</h4>
+                        <p>Core cloud infrastructure, IAM security policies, VPC networking, EC2, S3, and serverless compute solutions[cite: 2].</p>
+                    </div>
+                    <div class="service-box">
+                        <div class="icon"><i class="fas fa-terminal"></i></div>
+                        <h4>Linux Administration</h4>
+                        <p>Advanced system administration, shell scripting, permission management, and performance tuning[cite: 2].</p>
+                    </div>
+                    <div class="service-box">
+                        <div class="icon"><i class="fab fa-python"></i></div>
+                        <h4>Python Automation</h4>
+                        <p>Developing robust backend logic, automation scripts, and utility tools for cloud operations[cite: 2].</p>
+                    </div>
+                    <div class="service-box">
+                        <div class="icon"><i class="fas fa-cubes"></i></div>
+                        <h4>Docker & Kubernetes</h4>
+                        <p>Application containerization and microservices orchestration cluster management for scalable deployments[cite: 2].</p>
+                    </div>
+                    <div class="service-box">
+                        <div class="icon"><i class="fas fa-project-diagram"></i></div>
+                        <h4>Terraform (IaC)</h4>
+                        <p>Infrastructure as Code for automated, version-controlled cloud resource provisioning[cite: 2].</p>
+                    </div>
+                    <div class="service-box">
+                        <div class="icon"><i class="fas fa-cogs"></i></div>
+                        <h4>Jenkins CI/CD & Git</h4>
+                        <p>Building automated build pipelines, continuous integration, and collaborative version control workflows[cite: 2].</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Information</h2>
+                    <p>Get in touch for professional collaborations, cloud consulting, or career opportunities[cite: 2].</p>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Corporate Location</h4>
+                            <span>Delhi, India (Studying at Greater Noida)[cite: 2]</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Professional Email</h4>
+                            <span>khanzubair2507@gmail.com[cite: 2]</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Direct Contact Number</h4>
+                            <span>+91 6396691273[cite: 2]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
